@@ -47,7 +47,7 @@
             }
           }
 
-          settings.params = undefined;
+          delete settings.params;
 
           for (var variable in settings) {
               if (settings.hasOwnProperty(variable)) {
