@@ -37,9 +37,9 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
-        var el = document.getElementById('settings');
 
         socket.on('settings', function(settings){
+          var el = document.getElementById('settings');
           var str = '<ul class="collection with-header">';
           str+='<li class="collection-header"><h4>SETTINGS</h4></li>';
 
@@ -55,6 +55,7 @@
         });
 
         socket.on('state', function(state) {
+            var el = document.getElementById('settings');
             var str = '<ul class="collection with-header">';
             str+='<li class="collection-header"><h4>STATE</h4></li>';
 
