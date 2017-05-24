@@ -44,7 +44,7 @@
           str+='<li class="collection-header"><h4>SETTINGS</h4></li>';
 
           for (var param in settings.params) {
-            if (object.hasOwnProperty(param)) {
+            if (settings.params.hasOwnProperty(param)) {
               settings[param] = settings.params[param];
             }
           }
