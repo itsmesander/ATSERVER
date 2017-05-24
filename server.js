@@ -27,6 +27,7 @@ const server = express()
       socket.emit('settings', settings);
 
       socket.emit('hello', "hello");
+      io.emit('hello', "hello");
 
       for (let param of settings.params) {
         socket.on(param, (data)=>{
