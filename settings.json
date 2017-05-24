@@ -1,0 +1,10 @@
+{
+	"params" : [
+		"/eyeposx",
+		"/eyeposy",
+		"/leftplayer",
+		"/rightplayer"
+	],
+	"oscInputPort" : 57121,
+	"oscOutputPort" : 1234
+};

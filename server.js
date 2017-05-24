@@ -3,6 +3,10 @@
 const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
+var fs = require('fs');
+var parser = require('json-parser');
+var settings = "";
+var state = {};
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -11,11 +15,25 @@ const server = express()
   .use((req, res) => res.sendFile(INDEX) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const io = socketIO(server);
+  fs.readFile(__dirname + '/settings.json', function(err, data) {
+    settings = parser.parse(data);
+    console.log("settings loaded :: ");
+    console.log(settings);
 
-io.on('connection', (socket) => {
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
-});
+    const io = socketIO(server);
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+    io.on('connection', (socket) => {
+      console.log('Client connected');
+      socket.emit('settings', settings);
+
+      for (let param of settings.params) {
+        socket.on(param, (data)=>{
+          state[param] = data;
+          io.emit(param, data);
+          io.emit("state", state);
+        });
+      }
+
+      socket.on('disconnect', () => console.log('Client disconnected'));
+    });
+  });
