@@ -26,6 +26,8 @@ const server = express()
       console.log('Client connected');
       socket.emit('settings', settings);
 
+      socket.emit('hello', "hello");
+
       for (let param of settings.params) {
         socket.on(param, (data)=>{
           state[param] = data;
