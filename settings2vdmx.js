@@ -12,6 +12,17 @@ fs.readFile(__dirname + '/settings.json', function(err, data) {
   const ip = settings.oscInputPort;
   const op = settings.oscOutputPort;
 
+  function removeSpecialChars(str) {
+    return str.replace(/(?!\w|\s)./g, '')
+      .replace(/\s+/g, ' ')
+      .replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2');
+  }
+
+  for (var i = 0; i < amnt; i++){
+    removeSpecialChars(params[i]);
+  }
+  console.log(params);
+  return;
   rval.classArray = [];
   for (var i = 0; i < amnt; i++) {
     rval.classArray.push("Slider");
@@ -26,31 +37,27 @@ fs.readFile(__dirname + '/settings.json', function(err, data) {
   for (var i = 0; i < amnt; i++) {
     var o = [
         {
-          "msgAddress" : "\/eyeposy",
-          "normalizeFlag" : true,
-          "floatInvertFlag" : false,
-          "outputPort" : 57121,
-          "boolInvertFlag" : false,
-          "boolThreshVal" : 0.1,
-          "highIntVal" : 100,
-          "outputIPAddress" : "127.0.0.1",
-          "outputLabel" : "OSC Out Port 1",
-          "dataSenderType" : 2,
-          "lowIntVal" : 0,
-          "enabled" : true,
-          "intInvertFlag" : false,
-          "senderType" : 4
+          msgAddress : params[i],
+          normalizeFlag : true,
+          floatInvertFlag : false,
+          outputPort : 57121,
+          boolInvertFlag : false,
+          boolThreshVal : 0.1,
+          highIntVal : 100,
+          outputIPAddress : "127.0.0.1",
+          outputLabel : "OSC Out Port 1",
+          dataSenderType : 2,
+          lowIntVal : 0,
+          enabled : true,
+          intInvertFlag : false,
+          senderType : 4
         }
       ];
-
     rval.uiBuilder[params[i]] = o;
   }
   rval.uiBuilder.VWGridSize = "{-1, -1}";
   fs.writeFile(__dirname +"/export.json", JSON.stringify(rval));
   console.log(JSON.parse(JSON.stringify(rval)));
-
-
-  printObject({hallo:{hey:{hoe:"hoe"}}});
 });
 
 function printObject(o){

@@ -1,10 +1,16 @@
 {
-	"params" : [
-		"/eyeposx",
-		"/eyeposy",
-		"/leftplayer",
-		"/rightplayer"
-	],
-	"oscInputPort" : 57121,
-	"oscOutputPort" : 1234
+    "params": [
+				"/test",
+        "/Tracker/Accelero/xas",
+        "/Tracker/Accelero/yas",
+        "/Tracker/Accelero/zas",
+        "/Tracker/Temperature/celsius",
+        "/Tracker/Feeg/thought",
+        "/Tracker/Feeg/remember",
+        "/Tracker/Gsr/sweat",
+        "/Tracker/Breathing/diaphragm",
+        "/Tracker/Heart/bpm"
+    ],
+    "oscInputPort": 57121,
+    "oscOutputPort": 1234
 };
