@@ -1,7 +1,3 @@
-# Node.js Socket.io Example
+# ART & TECH Integration OSC 2 WEBSOCKET server
 
-This example accompanies the
-[Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
-tutorial.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+https://atintegration.herokuapp.com/
