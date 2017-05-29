@@ -1,6 +1,6 @@
 {
     "params": [
-				"/test",
+        "/test",
         "/Tracker/Accelero/xas",
         "/Tracker/Accelero/yas",
         "/Tracker/Accelero/zas",
@@ -9,7 +9,20 @@
         "/Tracker/Feeg/remember",
         "/Tracker/Gsr/sweat",
         "/Tracker/Breathing/diaphragm",
-        "/Tracker/Heart/bpm"
+        "/Tracker/Heart/bpm",
+        "/Laser/Pongscores",
+        "/Laser/Player/left",
+        "/Laser/Player/right",
+        "/Laser/Ball/position/x",
+        "/Laser/Ball/position/y",
+        "/Laser/Ball/position/leftXBetween",
+        "/Laser/Ball/position/rightXBetween",
+        "/Laser/Player/position/left/x",
+        "/Laser/Player/position/left/top/y",
+        "/Laser/Player/position/left/bot/y",
+        "/Laser/Player/position/right/x",
+        "/Laser/Player/position/right/top/y",
+        "/Laser/Player/position/right/bot/y"
     ],
     "oscInputPort": 57121,
     "oscOutputPort": 1234
